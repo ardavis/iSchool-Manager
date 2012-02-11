@@ -13,19 +13,74 @@
 		EBCFF11014E6FEED00389E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBCFF10E14E6FEED00389E38 /* InfoPlist.strings */; };
 		EBCFF11214E6FEED00389E38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF11114E6FEED00389E38 /* main.m */; };
 		EBCFF11614E6FEED00389E38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF11514E6FEED00389E38 /* AppDelegate.m */; };
+		EBCFF11F14E6FF3600389E38 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF11E14E6FF3600389E38 /* Course.m */; };
+		EBCFF15514E7020500389E38 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF14C14E7019500389E38 /* libRestKit.a */; };
+		EBCFF15714E7021E00389E38 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15614E7021E00389E38 /* CFNetwork.framework */; };
+		EBCFF15914E7022900389E38 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15814E7022900389E38 /* CoreData.framework */; };
+		EBCFF15B14E7023500389E38 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15A14E7023500389E38 /* MobileCoreServices.framework */; };
+		EBCFF15D14E7023F00389E38 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15C14E7023F00389E38 /* Security.framework */; };
+		EBCFF15F14E7024800389E38 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15E14E7024800389E38 /* SystemConfiguration.framework */; };
+		EBCFF16114E7025400389E38 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF16014E7025400389E38 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBCFF14B14E7019500389E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCFF14114E7019400389E38 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		EBCFF14D14E7019500389E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCFF14114E7019400389E38 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		EBCFF14F14E7019500389E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCFF14114E7019400389E38 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		EBCFF15114E7019500389E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCFF14114E7019400389E38 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		EBCFF15314E701EF00389E38 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCFF14114E7019400389E38 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EBCFF10114E6FEED00389E38 /* iSchoolManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchoolManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFF10514E6FEED00389E38 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EBCFF10714E6FEED00389E38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EBCFF10914E6FEED00389E38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		EBCFF10D14E6FEED00389E38 /* iSchoolManager-Info.plist */ = {isa = PBXFileReference; path = "iSchoolManager-Info.plist"; sourceTree = "<group>"; };
+		EBCFF10D14E6FEED00389E38 /* iSchoolManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSchoolManager-Info.plist"; sourceTree = "<group>"; };
 		EBCFF10F14E6FEED00389E38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EBCFF11114E6FEED00389E38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EBCFF11314E6FEED00389E38 /* iSchoolManager-Prefix.pch */ = {isa = PBXFileReference; path = "iSchoolManager-Prefix.pch"; sourceTree = "<group>"; };
-		EBCFF11414E6FEED00389E38 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		EBCFF11314E6FEED00389E38 /* iSchoolManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSchoolManager-Prefix.pch"; sourceTree = "<group>"; };
+		EBCFF11414E6FEED00389E38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBCFF11514E6FEED00389E38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EBCFF11D14E6FF3600389E38 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		EBCFF11E14E6FF3600389E38 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		EBCFF14114E7019400389E38 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		EBCFF15614E7021E00389E38 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EBCFF15814E7022900389E38 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EBCFF15A14E7023500389E38 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		EBCFF15C14E7023F00389E38 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		EBCFF15E14E7024800389E38 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EBCFF16014E7025400389E38 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +88,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCFF16114E7025400389E38 /* libxml2.dylib in Frameworks */,
+				EBCFF15F14E7024800389E38 /* SystemConfiguration.framework in Frameworks */,
+				EBCFF15D14E7023F00389E38 /* Security.framework in Frameworks */,
+				EBCFF15B14E7023500389E38 /* MobileCoreServices.framework in Frameworks */,
+				EBCFF15914E7022900389E38 /* CoreData.framework in Frameworks */,
+				EBCFF15714E7021E00389E38 /* CFNetwork.framework in Frameworks */,
+				EBCFF15514E7020500389E38 /* libRestKit.a in Frameworks */,
 				EBCFF10614E6FEED00389E38 /* UIKit.framework in Frameworks */,
 				EBCFF10814E6FEED00389E38 /* Foundation.framework in Frameworks */,
 				EBCFF10A14E6FEED00389E38 /* CoreGraphics.framework in Frameworks */,
@@ -45,6 +107,7 @@
 		EBCFF0F614E6FEED00389E38 = {
 			isa = PBXGroup;
 			children = (
+				EBCFF14114E7019400389E38 /* RestKit.xcodeproj */,
 				EBCFF10B14E6FEED00389E38 /* iSchoolManager */,
 				EBCFF10414E6FEED00389E38 /* Frameworks */,
 				EBCFF10214E6FEED00389E38 /* Products */,
@@ -62,6 +125,12 @@
 		EBCFF10414E6FEED00389E38 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBCFF16014E7025400389E38 /* libxml2.dylib */,
+				EBCFF15E14E7024800389E38 /* SystemConfiguration.framework */,
+				EBCFF15C14E7023F00389E38 /* Security.framework */,
+				EBCFF15A14E7023500389E38 /* MobileCoreServices.framework */,
+				EBCFF15814E7022900389E38 /* CoreData.framework */,
+				EBCFF15614E7021E00389E38 /* CFNetwork.framework */,
 				EBCFF10514E6FEED00389E38 /* UIKit.framework */,
 				EBCFF10714E6FEED00389E38 /* Foundation.framework */,
 				EBCFF10914E6FEED00389E38 /* CoreGraphics.framework */,
@@ -72,6 +141,7 @@
 		EBCFF10B14E6FEED00389E38 /* iSchoolManager */ = {
 			isa = PBXGroup;
 			children = (
+				EBCFF11C14E6FF0500389E38 /* Models */,
 				EBCFF11414E6FEED00389E38 /* AppDelegate.h */,
 				EBCFF11514E6FEED00389E38 /* AppDelegate.m */,
 				EBCFF10C14E6FEED00389E38 /* Supporting Files */,
@@ -90,6 +160,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EBCFF11C14E6FF0500389E38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFF11D14E6FF3600389E38 /* Course.h */,
+				EBCFF11E14E6FF3600389E38 /* Course.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		EBCFF14214E7019400389E38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFF14C14E7019500389E38 /* libRestKit.a */,
+				EBCFF14E14E7019500389E38 /* RestKitTests.octest */,
+				EBCFF15014E7019500389E38 /* RestKit.framework */,
+				EBCFF15214E7019500389E38 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,6 +194,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EBCFF15414E701EF00389E38 /* PBXTargetDependency */,
 			);
 			name = iSchoolManager;
 			productName = iSchoolManager;
@@ -129,12 +220,49 @@
 			mainGroup = EBCFF0F614E6FEED00389E38;
 			productRefGroup = EBCFF10214E6FEED00389E38 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EBCFF14214E7019400389E38 /* Products */;
+					ProjectRef = EBCFF14114E7019400389E38 /* RestKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EBCFF10014E6FEED00389E38 /* iSchoolManager */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBCFF14C14E7019500389E38 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = EBCFF14B14E7019500389E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBCFF14E14E7019500389E38 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = EBCFF14D14E7019500389E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBCFF15014E7019500389E38 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = EBCFF14F14E7019500389E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBCFF15214E7019500389E38 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = EBCFF15114E7019500389E38 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EBCFF0FF14E6FEED00389E38 /* Resources */ = {
@@ -154,10 +282,19 @@
 			files = (
 				EBCFF11214E6FEED00389E38 /* main.m in Sources */,
 				EBCFF11614E6FEED00389E38 /* AppDelegate.m in Sources */,
+				EBCFF11F14E6FF3600389E38 /* Course.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBCFF15414E701EF00389E38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = EBCFF15314E701EF00389E38 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EBCFF10E14E6FEED00389E38 /* InfoPlist.strings */ = {
@@ -221,7 +358,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSchoolManager/iSchoolManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
 				INFOPLIST_FILE = "iSchoolManager/iSchoolManager-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -232,7 +374,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSchoolManager/iSchoolManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SOURCE_ROOT)/RestKit/Build\"";
 				INFOPLIST_FILE = "iSchoolManager/iSchoolManager-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
