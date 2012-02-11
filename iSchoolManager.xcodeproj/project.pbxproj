@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EBCFF10614E6FEED00389E38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF10514E6FEED00389E38 /* UIKit.framework */; };
+		EBCFF10814E6FEED00389E38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF10714E6FEED00389E38 /* Foundation.framework */; };
+		EBCFF10A14E6FEED00389E38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF10914E6FEED00389E38 /* CoreGraphics.framework */; };
+		EBCFF11014E6FEED00389E38 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBCFF10E14E6FEED00389E38 /* InfoPlist.strings */; };
+		EBCFF11214E6FEED00389E38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF11114E6FEED00389E38 /* main.m */; };
+		EBCFF11614E6FEED00389E38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF11514E6FEED00389E38 /* AppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EBCFF10114E6FEED00389E38 /* iSchoolManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchoolManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCFF10514E6FEED00389E38 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EBCFF10714E6FEED00389E38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EBCFF10914E6FEED00389E38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EBCFF10D14E6FEED00389E38 /* iSchoolManager-Info.plist */ = {isa = PBXFileReference; path = "iSchoolManager-Info.plist"; sourceTree = "<group>"; };
+		EBCFF10F14E6FEED00389E38 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EBCFF11114E6FEED00389E38 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EBCFF11314E6FEED00389E38 /* iSchoolManager-Prefix.pch */ = {isa = PBXFileReference; path = "iSchoolManager-Prefix.pch"; sourceTree = "<group>"; };
+		EBCFF11414E6FEED00389E38 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		EBCFF11514E6FEED00389E38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBCFF0FE14E6FEED00389E38 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCFF10614E6FEED00389E38 /* UIKit.framework in Frameworks */,
+				EBCFF10814E6FEED00389E38 /* Foundation.framework in Frameworks */,
+				EBCFF10A14E6FEED00389E38 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EBCFF0F614E6FEED00389E38 = {
+			isa = PBXGroup;
+			children = (
+				EBCFF10B14E6FEED00389E38 /* iSchoolManager */,
+				EBCFF10414E6FEED00389E38 /* Frameworks */,
+				EBCFF10214E6FEED00389E38 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EBCFF10214E6FEED00389E38 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFF10114E6FEED00389E38 /* iSchoolManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBCFF10414E6FEED00389E38 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFF10514E6FEED00389E38 /* UIKit.framework */,
+				EBCFF10714E6FEED00389E38 /* Foundation.framework */,
+				EBCFF10914E6FEED00389E38 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBCFF10B14E6FEED00389E38 /* iSchoolManager */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFF11414E6FEED00389E38 /* AppDelegate.h */,
+				EBCFF11514E6FEED00389E38 /* AppDelegate.m */,
+				EBCFF10C14E6FEED00389E38 /* Supporting Files */,
+			);
+			path = iSchoolManager;
+			sourceTree = "<group>";
+		};
+		EBCFF10C14E6FEED00389E38 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBCFF10D14E6FEED00389E38 /* iSchoolManager-Info.plist */,
+				EBCFF10E14E6FEED00389E38 /* InfoPlist.strings */,
+				EBCFF11114E6FEED00389E38 /* main.m */,
+				EBCFF11314E6FEED00389E38 /* iSchoolManager-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBCFF10014E6FEED00389E38 /* iSchoolManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBCFF11914E6FEED00389E38 /* Build configuration list for PBXNativeTarget "iSchoolManager" */;
+			buildPhases = (
+				EBCFF0FD14E6FEED00389E38 /* Sources */,
+				EBCFF0FE14E6FEED00389E38 /* Frameworks */,
+				EBCFF0FF14E6FEED00389E38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iSchoolManager;
+			productName = iSchoolManager;
+			productReference = EBCFF10114E6FEED00389E38 /* iSchoolManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBCFF0F814E6FEED00389E38 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = NASA;
+			};
+			buildConfigurationList = EBCFF0FB14E6FEED00389E38 /* Build configuration list for PBXProject "iSchoolManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EBCFF0F614E6FEED00389E38;
+			productRefGroup = EBCFF10214E6FEED00389E38 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBCFF10014E6FEED00389E38 /* iSchoolManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBCFF0FF14E6FEED00389E38 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCFF11014E6FEED00389E38 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBCFF0FD14E6FEED00389E38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBCFF11214E6FEED00389E38 /* main.m in Sources */,
+				EBCFF11614E6FEED00389E38 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EBCFF10E14E6FEED00389E38 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBCFF10F14E6FEED00389E38 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EBCFF11714E6FEED00389E38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EBCFF11814E6FEED00389E38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EBCFF11A14E6FEED00389E38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSchoolManager/iSchoolManager-Prefix.pch";
+				INFOPLIST_FILE = "iSchoolManager/iSchoolManager-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EBCFF11B14E6FEED00389E38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSchoolManager/iSchoolManager-Prefix.pch";
+				INFOPLIST_FILE = "iSchoolManager/iSchoolManager-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBCFF0FB14E6FEED00389E38 /* Build configuration list for PBXProject "iSchoolManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBCFF11714E6FEED00389E38 /* Debug */,
+				EBCFF11814E6FEED00389E38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBCFF11914E6FEED00389E38 /* Build configuration list for PBXNativeTarget "iSchoolManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBCFF11A14E6FEED00389E38 /* Debug */,
+				EBCFF11B14E6FEED00389E38 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBCFF0F814E6FEED00389E38 /* Project object */;
+}
