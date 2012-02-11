@@ -21,6 +21,8 @@
 		EBCFF15D14E7023F00389E38 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15C14E7023F00389E38 /* Security.framework */; };
 		EBCFF15F14E7024800389E38 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF15E14E7024800389E38 /* SystemConfiguration.framework */; };
 		EBCFF16114E7025400389E38 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF16014E7025400389E38 /* libxml2.dylib */; };
+		EBCFF16414E7032D00389E38 /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */; };
+		EBCFF16614E706EC00389E38 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,9 @@
 		EBCFF15C14E7023F00389E38 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EBCFF15E14E7024800389E38 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EBCFF16014E7025400389E38 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		EBCFF16214E7032D00389E38 /* CoursesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTableViewController.h; sourceTree = "<group>"; };
+		EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTableViewController.m; sourceTree = "<group>"; };
+		EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +150,9 @@
 				EBCFF11414E6FEED00389E38 /* AppDelegate.h */,
 				EBCFF11514E6FEED00389E38 /* AppDelegate.m */,
 				EBCFF10C14E6FEED00389E38 /* Supporting Files */,
+				EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */,
+				EBCFF16214E7032D00389E38 /* CoursesTableViewController.h */,
+				EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */,
 			);
 			path = iSchoolManager;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBCFF11014E6FEED00389E38 /* InfoPlist.strings in Resources */,
+				EBCFF16614E706EC00389E38 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +292,7 @@
 				EBCFF11214E6FEED00389E38 /* main.m in Sources */,
 				EBCFF11614E6FEED00389E38 /* AppDelegate.m in Sources */,
 				EBCFF11F14E6FF3600389E38 /* Course.m in Sources */,
+				EBCFF16414E7032D00389E38 /* CoursesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

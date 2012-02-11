@@ -6,8 +6,10 @@
 //  Copyright (c) 2012 NASA. All rights reserved.
 //
 
-#import "AppDelegate.h"
 #import <RestKit/RestKit.h>
+#import "AppDelegate.h"
+#import "CoursesTableViewController.h"
+#import "Course.h"
 
 @implementation AppDelegate
 
@@ -15,10 +17,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+    // Initialize RestKit
+    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://school_manager.dev"];
+    
+    // Enable automatic network activity indicator management
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+    
+    // Setup our object mappings
+    RKObjectMapping* courseMapping = [RKObjectMapping mappingForClass:[Course class]];
+    [courseMapping mapKeyPathsToAttributes:
+     @"id", @"courseID",
+     @"name", @"name",
+     @"number", @"number",
+     nil];
+    
+    // Update date format so that we can parse Twitter dates properly
+    // Wed Sep 29 15:31:08 +0000 2010
+    [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
+    
+    // Register our mappings with the provider
+    [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@"course"];
+    
     return YES;
 }
 

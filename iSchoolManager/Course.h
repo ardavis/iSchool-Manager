@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Course : NSObject {
+    NSNumber* _courseID;
     NSString* _name;
     NSString* _number;
 }
 
+@property (nonatomic, strong) NSNumber *courseID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *number;
 
