@@ -12,24 +12,12 @@
 
 @interface CoursesTableViewController (Private)
 - (void)loadData;
+- (void)loadCourses;
 @end
 
 @implementation CoursesTableViewController
 
 @synthesize courses = _courses;
-
-- (void)loadCourses {
-    // Load the object model via RestKit
-    RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    objectManager.client.baseURL = @"http://school_manager.dev";
-    [objectManager loadObjectsAtResourcePath:@"/users/23/courses" delegate:self block:^(RKObjectLoader* loader) {
-        // School Manager returns statuses as a naked array in JSON, so we instruct the loader
-        // to user the appropriate object mapping
-        if ([objectManager.acceptMIMEType isEqualToString:RKMIMETypeJSON]) {
-            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
-        }
-    }];
-}
 
 #pragma mark - View lifecycle
 
@@ -48,9 +36,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    NSLog(@"Loading Courses Now! - #1");
-    [self loadCourses];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -91,33 +76,47 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)loadView {
+- (void)loadView
+{
     [super loadView];
-    NSLog(@"Should be called before didLoadObjects");
+    [self loadCourses];
 }
 
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+    NSLog(@"Letter B");
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSMutableArray*)objects {
-    NSLog(@"Should be called after loadView");
+    NSLog(@"Letter C");
     
     self.courses = objects;
-
-    // Logging to verify the names of the courses
-    for (int i = 0; i < self.courses.count; i++) {
-        Course *myCourse = [self.courses objectAtIndex:i];
-        NSLog(@"Course %i: %@", i, myCourse.name);
-    }
+    [self.tableView reloadData];
+    
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didFailWithError:(NSError*)error {
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
     NSLog(@"Hit error: %@", error);
+}
+
+- (void)loadCourses {
+    
+    NSLog(@"Letter A");
+    
+    // Load the object model via RestKit
+    RKObjectManager* objectManager = [RKObjectManager sharedManager];
+    objectManager.client.baseURL = @"http://school_manager.dev";
+    [objectManager loadObjectsAtResourcePath:@"/users/23/courses" delegate:self block:^(RKObjectLoader* loader) {
+        // School Manager returns statuses as a naked array in JSON, so we instruct the loader
+        // to user the appropriate object mapping
+        if ([objectManager.acceptMIMEType isEqualToString:RKMIMETypeJSON]) {
+            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -131,10 +130,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"Number of Courses: %i", self.courses.count);
-    NSLog(@"Reloading Data - #2");
     return self.courses.count;
-    [tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -147,10 +143,6 @@
     }
     
     // Configure the cell...
-    
-    NSLog(@"Courses Count is: %i", self.courses.count);
-    NSLog(@"Current Course: %a", [self.courses objectAtIndex:indexPath.row]);
-    
     Course *course = (Course *)[self.courses objectAtIndex:indexPath.row];
     
     cell.textLabel.text = course.name;
@@ -197,6 +189,7 @@
     return YES;
 }
 */
+
 
 #pragma mark - Table view delegate
 
