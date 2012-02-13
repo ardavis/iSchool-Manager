@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "AddCourseViewController.h"
 
 @interface CoursesTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate> 
 
 - (IBAction)reloadCourses:(id)sender;
 
 @property (nonatomic, strong) NSMutableArray* courses;
-
 
 @end

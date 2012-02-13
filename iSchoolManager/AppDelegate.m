@@ -20,24 +20,33 @@
     RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
     // Initialize RestKit
     RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://school_manager.dev"];
+    objectManager.acceptMIMEType = RKMIMETypeJSON;
+    objectManager.serializationMIMEType = RKMIMETypeJSON; 
     
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     
     // Setup our object mappings
     RKObjectMapping* courseMapping = [RKObjectMapping mappingForClass:[Course class]];
-    [courseMapping mapKeyPathsToAttributes:
-     @"id", @"courseID",
-     @"name", @"name",
-     @"number", @"number",
-     nil];
+    [courseMapping mapKeyPath:@"id" toAttribute:@"courseID"];
+    [courseMapping mapKeyPath:@"name" toAttribute:@"name"];
+    [courseMapping mapKeyPath:@"number" toAttribute:@"number"];
+
     
-    // Update date format so that we can parse Twitter dates properly
-    // Wed Sep 29 15:31:08 +0000 2010
-    [RKObjectMapping addDefaultDateFormatterForString:@"E MMM d HH:mm:ss Z y" inTimeZone:nil];
+    RKObjectMapping *courseSerializationMapping = [RKObjectMapping 
+                                                  mappingForClass:[Course class]]; 
+    [courseSerializationMapping mapKeyPath:@"courseID" toAttribute:@"id"]; 
+    [courseSerializationMapping mapKeyPath:@"name" toAttribute:@"name"]; 
+    [courseSerializationMapping mapKeyPath:@"number" toAttribute:@"number"]; 
+    
+    [objectManager.mappingProvider 
+     setSerializationMapping:courseSerializationMapping forClass:[Course class]];
     
     // Register our mappings with the provider
-    [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@"course"];
+    [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@"/users/23/courses"];
+    
+    [objectManager.router routeClass:[Course class] toResourcePath:@"/users/23/courses" forMethod:RKRequestMethodPOST];
+    [objectManager.router routeClass:[Course class] toResourcePath:@"/users/23/courses/:courseID" forMethod:RKRequestMethodDELETE];
     
     return YES;
 }

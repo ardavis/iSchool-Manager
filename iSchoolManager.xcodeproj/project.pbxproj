@@ -23,6 +23,7 @@
 		EBCFF16114E7025400389E38 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF16014E7025400389E38 /* libxml2.dylib */; };
 		EBCFF16414E7032D00389E38 /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */; };
 		EBCFF16614E706EC00389E38 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */; };
+		EBCFF16914E73CF300389E38 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF16814E73CF200389E38 /* AddCourseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		EBCFF16214E7032D00389E38 /* CoursesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoursesTableViewController.h; sourceTree = "<group>"; };
 		EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoursesTableViewController.m; sourceTree = "<group>"; };
 		EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		EBCFF16714E73CF200389E38 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
+		EBCFF16814E73CF200389E38 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +156,8 @@
 				EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */,
 				EBCFF16214E7032D00389E38 /* CoursesTableViewController.h */,
 				EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */,
+				EBCFF16714E73CF200389E38 /* AddCourseViewController.h */,
+				EBCFF16814E73CF200389E38 /* AddCourseViewController.m */,
 			);
 			path = iSchoolManager;
 			sourceTree = "<group>";
@@ -293,6 +298,7 @@
 				EBCFF11614E6FEED00389E38 /* AppDelegate.m in Sources */,
 				EBCFF11F14E6FF3600389E38 /* Course.m in Sources */,
 				EBCFF16414E7032D00389E38 /* CoursesTableViewController.m in Sources */,
+				EBCFF16914E73CF300389E38 /* AddCourseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
