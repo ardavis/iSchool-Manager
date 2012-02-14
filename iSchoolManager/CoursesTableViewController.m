@@ -14,6 +14,7 @@
 
 @interface CoursesTableViewController () <AddCourseViewControllerDelegate>
 - (void)loadCourses;
+- (void)reload;
 @end
 
 @implementation CoursesTableViewController
@@ -84,14 +85,17 @@
 #pragma mark RKObjectLoaderDelegate methods
 
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-    NSLog(@"Letter B");
     NSLog(@"Loaded payload: %@", [response bodyAsString]);
 }
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSMutableArray*)objects {
-    NSLog(@"Letter C");
-    
     self.courses = objects;
+    for (int i = 0; i < self.courses.count; i++) {
+        Course *myCourse = [self.courses objectAtIndex:i];
+        NSLog(@"Course #%i Name - %@", i, myCourse.name);
+        NSLog(@"Course #%i Number - %@", i, myCourse.number);
+        NSLog(@"Course #%i ID - %@", i, myCourse.courseID);
+    }
     [self.tableView reloadData];
     
 }
@@ -108,13 +112,14 @@
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     objectManager.client.baseURL = @"http://school_manager.dev";
 
-    [objectManager loadObjectsAtResourcePath:@"/users/23/courses" delegate:self block:^(RKObjectLoader* loader) {
-        // School Manager returns statuses as a naked array in JSON, so we instruct the loader
-        // to user the appropriate object mapping
-        if ([objectManager.acceptMIMEType isEqualToString:RKMIMETypeJSON]) {
-            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
-        }
-    }];
+    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self];
+//    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self block:^(RKObjectLoader* loader) {
+//        // School Manager returns statuses as a naked array in JSON, so we instruct the loader
+//        // to user the appropriate object mapping
+//        if ([objectManager.acceptMIMEType isEqualToString:RKMIMETypeJSON]) {
+//            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
+//        }
+//    }];
 }
 
 #pragma mark - Table view data source
@@ -232,8 +237,7 @@
     [self dismissModalViewControllerAnimated:YES];
     
     // Reload the data
-    [self loadCourses];
-    [self.tableView reloadData];
+    [self reload];
 }
 
 - (void)addCourseViewControllerDidCancel:(AddCourseViewController *)controller
@@ -252,9 +256,14 @@
     }
 }
 
-- (IBAction)reloadCourses:(id)sender {
+- (void)reload
+{
     [self loadCourses];
     [self.tableView reloadData];
+}
+
+- (IBAction)reloadCourses:(id)sender {
+    [self reload];
 }
 
 @end
