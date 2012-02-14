@@ -26,13 +26,13 @@
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
     
-    // Setup our object mappings
+    // Setup our incoming object mappings
     RKObjectMapping* courseMapping = [RKObjectMapping mappingForClass:[Course class]];
     [courseMapping mapKeyPath:@"id" toAttribute:@"courseID"];
     [courseMapping mapKeyPath:@"name" toAttribute:@"name"];
     [courseMapping mapKeyPath:@"number" toAttribute:@"number"];
-
     
+    // Setup our outgoing object mapping
     RKObjectMapping *courseSerializationMapping = [RKObjectMapping 
                                                   mappingForClass:[Course class]]; 
     [courseSerializationMapping mapKeyPath:@"courseID" toAttribute:@"id"]; 
@@ -44,6 +44,7 @@
     
     // Register our mappings with the provider
     [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@""];
+    
     [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodGET];
     [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodPOST];
     [objectManager.router routeClass:[Course class] toResourcePath:@"/courses/:courseID" forMethod:RKRequestMethodDELETE];
