@@ -186,6 +186,8 @@
         NSLog(@"Course ID: %@", course.courseID);
         
         [[RKObjectManager sharedManager] deleteObject:course delegate:self];
+        
+        [self reload];
  
     }   
 }

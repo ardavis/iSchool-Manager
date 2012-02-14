@@ -44,6 +44,7 @@
     
     // Register our mappings with the provider
     [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@""];
+    
     [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodGET];
     [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodPOST];
     [objectManager.router routeClass:[Course class] toResourcePath:@"/courses/:courseID" forMethod:RKRequestMethodDELETE];
