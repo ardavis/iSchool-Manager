@@ -43,10 +43,10 @@
      setSerializationMapping:courseSerializationMapping forClass:[Course class]];
     
     // Register our mappings with the provider
-    [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@"/users/23/courses"];
-    
-    [objectManager.router routeClass:[Course class] toResourcePath:@"/users/23/courses" forMethod:RKRequestMethodPOST];
-    [objectManager.router routeClass:[Course class] toResourcePath:@"/users/23/courses/:courseID" forMethod:RKRequestMethodDELETE];
+    [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@""];
+    [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodGET];
+    [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodPOST];
+    [objectManager.router routeClass:[Course class] toResourcePath:@"/courses/:courseID" forMethod:RKRequestMethodDELETE];
     
     return YES;
 }

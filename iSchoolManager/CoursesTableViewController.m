@@ -90,7 +90,9 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSMutableArray*)objects {
     NSLog(@"Letter C");
-    
+    for (id obj in objects) {
+        NSLog(@"object:%@",obj);
+    }
     self.courses = objects;
     [self.tableView reloadData];
     
@@ -180,7 +182,11 @@
         NSLog(@"Course Number: %@", course.number);
         NSLog(@"Course ID: %@", course.courseID);
         
-        [[RKObjectManager sharedManager] deleteObject:course delegate:self];
+        //[[RKObjectManager sharedManager] deleteObject:course delegate:self];
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        [[RKObjectManager sharedManager] deleteObject:course delegate:self block:^(RKObjectLoader *loader) {
+            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
+        }];
  
     }   
 }

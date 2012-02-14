@@ -420,6 +420,7 @@
 				EBCFF11B14E6FEED00389E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
