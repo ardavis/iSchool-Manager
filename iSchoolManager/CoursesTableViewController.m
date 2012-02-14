@@ -185,7 +185,10 @@
         NSLog(@"Course Number: %@", course.number);
         NSLog(@"Course ID: %@", course.courseID);
         
-        [[RKObjectManager sharedManager] deleteObject:course delegate:self];
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        [[RKObjectManager sharedManager] deleteObject:course delegate:self block:^(RKObjectLoader *loader) {
+            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
+        }];
         
         [self reload];
  
