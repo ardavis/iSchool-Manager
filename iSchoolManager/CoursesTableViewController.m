@@ -8,7 +8,7 @@
 
 #import "CoursesTableViewController.h"
 #import "AddCourseViewController.h"
-#import "Course.h"
+#import "MyModels.h"
 #import <RestKit/RestKit.h>
 
 
@@ -112,14 +112,14 @@
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
     objectManager.client.baseURL = @"http://school_manager.dev";
 
-    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self];
-//    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self block:^(RKObjectLoader* loader) {
-//        // School Manager returns statuses as a naked array in JSON, so we instruct the loader
-//        // to user the appropriate object mapping
-//        if ([objectManager.acceptMIMEType isEqualToString:RKMIMETypeJSON]) {
-//            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
-//        }
-//    }];
+//    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self];
+    [objectManager loadObjectsAtResourcePath:@"/users/1/courses" delegate:self block:^(RKObjectLoader* loader) {
+        // School Manager returns courses as a naked array in JSON, so we instruct the loader
+        // to user the appropriate object mapping
+        if ([objectManager.acceptMIMEType isEqualToString:RKMIMETypeJSON]) {
+            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Course class]];
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -233,8 +233,8 @@
         
         // Add the new course
         [[RKObjectManager sharedManager] postObject:course delegate:self block:^(RKObjectLoader* loader) { 
-            loader.resourcePath = @"/users/23/courses";
-            loader.objectMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForKeyPath:@"/users/23/courses"]; 
+            loader.resourcePath = @"/users/1/courses";
+            loader.objectMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForKeyPath:@"/users/1/courses"]; 
         }]; 
         
     }
@@ -252,12 +252,25 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
+    // Get the index path of the tableView
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    
+    // Create a course based on what was clicked
+    Course *clicked = [self.courses objectAtIndex:indexPath.row];
+    
+    NSLog(@"You clicked: %@, named: %@", clicked, clicked.name);
+    
     if ([[segue identifier] isEqualToString:@"ShowAddCourseView"]) 
     {
         // Get reference to the destination view controller
         AddCourseViewController *vc = (AddCourseViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];        
         
         vc.delegate = self;
+    }
+    else if ([segue.destinationViewController respondsToSelector:@selector(setCourse:)])
+    {
+//        [segue.destinationViewController performSelector:@selector(setCourse:) withObject:clicked];
+        [segue.destinationViewController setCourse:clicked];
     }
 }
 

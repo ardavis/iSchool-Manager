@@ -9,7 +9,7 @@
 #import <RestKit/RestKit.h>
 #import "AppDelegate.h"
 #import "CoursesTableViewController.h"
-#import "Course.h"
+#import "MyModels.h"
 
 @implementation AppDelegate
 
@@ -25,29 +25,62 @@
     
     // Enable automatic network activity indicator management
     objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+
+#pragma mark - Reskit Mappings
+    // Incoming Mappings
+    RKObjectMapping *courseMapping  = [RKObjectMapping mappingForClass:[Course class]];
+    RKObjectMapping *projectMapping = [RKObjectMapping mappingForClass:[Project class]];
     
+    // Outgoing Mappings
+    RKObjectMapping *courseSerializationMapping = [RKObjectMapping mappingForClass:[Course class]]; 
+    RKObjectMapping *projectSerializationMapping = [RKObjectMapping mappingForClass:[Project class]];
+
+#pragma mark - Restkit Course Setup  
     // Setup our incoming object mappings
-    RKObjectMapping* courseMapping = [RKObjectMapping mappingForClass:[Course class]];
     [courseMapping mapKeyPath:@"id" toAttribute:@"courseID"];
     [courseMapping mapKeyPath:@"name" toAttribute:@"name"];
     [courseMapping mapKeyPath:@"number" toAttribute:@"number"];
     
     // Setup our outgoing object mapping
-    RKObjectMapping *courseSerializationMapping = [RKObjectMapping 
-                                                  mappingForClass:[Course class]]; 
     [courseSerializationMapping mapKeyPath:@"courseID" toAttribute:@"id"]; 
     [courseSerializationMapping mapKeyPath:@"name" toAttribute:@"name"]; 
     [courseSerializationMapping mapKeyPath:@"number" toAttribute:@"number"]; 
     
-    [objectManager.mappingProvider 
-     setSerializationMapping:courseSerializationMapping forClass:[Course class]];
-    
     // Register our mappings with the provider
     [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@""];
+    [objectManager.mappingProvider setSerializationMapping:courseSerializationMapping forClass:[Course class]];
     
-    [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodGET];
-    [objectManager.router routeClass:[Course class] toResourcePath:@"/courses" forMethod:RKRequestMethodPOST];
-    [objectManager.router routeClass:[Course class] toResourcePath:@"/courses/:courseID" forMethod:RKRequestMethodDELETE];
+    // Routing
+    [objectManager.router routeClass:[Course class] toResourcePath:@"users/1/courses" forMethod:RKRequestMethodGET];
+    [objectManager.router routeClass:[Course class] toResourcePath:@"users/1/courses" forMethod:RKRequestMethodPOST];
+    [objectManager.router routeClass:[Course class] toResourcePath:@"users/1/courses/:courseID" forMethod:RKRequestMethodDELETE];
+    
+
+#pragma mark - Restkit Project Setup      
+    // Setup our incoming object mappings
+    [projectMapping mapKeyPath:@"id" toAttribute:@"projectID"];
+    [projectMapping mapKeyPath:@"course_id" toAttribute:@"courseID"];
+    [projectMapping mapKeyPath:@"title" toAttribute:@"title"];
+    [projectMapping mapKeyPath:@"description" toAttribute:@"desc"];
+    [projectMapping mapKeyPath:@"due_date" toAttribute:@"dueDate"];
+    
+    [projectMapping mapRelationship:@"course" withMapping:courseMapping];
+    
+    // Setup our outgoing mapping
+    [projectSerializationMapping mapKeyPath:@"projectID" toAttribute:@"id"];
+    [projectSerializationMapping mapKeyPath:@"courseID" toAttribute:@"course_id"];
+    [projectSerializationMapping mapKeyPath:@"title" toAttribute:@"title"];
+    [projectSerializationMapping mapKeyPath:@"desc" toAttribute:@"description"];
+    [projectSerializationMapping mapKeyPath:@"dueDate" toAttribute:@"due_date"];
+    
+    // Register our mappings with the provider
+    [objectManager.mappingProvider setMapping:projectMapping forKeyPath:@"/projects"];
+    [objectManager.mappingProvider setSerializationMapping:projectSerializationMapping forClass:[Project class]];
+    
+    // Routing
+    [objectManager.router routeClass:[Project class] toResourcePath:@"/projects" forMethod:RKRequestMethodGET];
+    [objectManager.router routeClass:[Project class] toResourcePath:@"/projects" forMethod:RKRequestMethodPOST];
+    [objectManager.router routeClass:[Project class] toResourcePath:@"/projects/:projectID" forMethod:RKRequestMethodDELETE];
     
     return YES;
 }

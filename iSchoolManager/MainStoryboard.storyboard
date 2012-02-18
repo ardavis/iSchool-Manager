@@ -10,7 +10,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Zx-Lj-Lwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="T4U-hk-agf" customClass="CoursesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JRt-ax-P0A">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -38,6 +38,9 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="ipg-OI-ckA" kind="push" identifier="ShowProjectsForCourse" id="fWM-yj-Bfv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -45,21 +48,85 @@
                             <outlet property="delegate" destination="T4U-hk-agf" id="EUQ-t5-x4w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Courses" id="ZXk-4e-KN4">
-                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="Drc-7x-kl4">
+                    <toolbarItems>
+                        <barButtonItem systemItem="refresh" id="Drc-7x-kl4">
                             <connections>
                                 <action selector="reloadCourses:" destination="T4U-hk-agf" id="1A6-sn-BFY"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="uj8-4p-Xep">
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="I4s-bs-jYw"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="dw7-MD-qQD"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="CLf-Au-o7l"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="25J-A2-Mga"/>
+                        <barButtonItem title="New Course" id="uj8-4p-Xep">
                             <connections>
                                 <segue destination="dXX-nf-fGr" kind="modal" identifier="ShowAddCourseView" modalTransitionStyle="crossDissolve" id="aJJ-EB-fmo"/>
                             </connections>
                         </barButtonItem>
-                    </navigationItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Courses" id="ZXk-4e-KN4"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="822" y="-239"/>
+        </scene>
+        <scene sceneID="fwk-xa-5Fe">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HUB-fE-BP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController id="ipg-OI-ckA" customClass="ProjectsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Sl3-av-cfL">
+                        <rect key="frame" x="0.0" y="64" width="320" height="372"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProjectCell" textLabel="L9X-4Q-3Y9" detailTextLabel="KZu-dc-bLZ" style="IBUITableViewCellStyleSubtitle" id="Tn4-wx-kj3">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="L9X-4Q-3Y9">
+                                            <rect key="frame" x="10" y="2" width="38" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KZu-dc-bLZ">
+                                            <rect key="frame" x="10" y="24" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ipg-OI-ckA" id="dg7-Kl-DvL"/>
+                            <outlet property="delegate" destination="ipg-OI-ckA" id="92i-66-RVS"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="refresh" id="Qpu-uf-Iv6">
+                            <connections>
+                                <action selector="reloadProjects:" destination="ipg-OI-ckA" id="PQO-Nf-Jmw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="Ipu-JK-aZZ"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0s1-uh-EMx"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="UUW-dv-ObJ"/>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="fyV-Pq-Cmq"/>
+                        <barButtonItem title="New Project" id="pMH-ii-gmg"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Course Number" id="yVo-j4-V3G"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1296" y="-239"/>
         </scene>
         <scene sceneID="i4m-QI-BJZ">
             <objects>
@@ -127,13 +194,17 @@
         <scene sceneID="aAq-MI-GU6">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrU-lP-QPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController id="Jt3-r6-Gqs" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="Jt3-r6-Gqs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dPK-B0-nB8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ilf-kM-F6z">
+                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="T4U-hk-agf" kind="relationship" relationship="rootViewController" id="7cJ-XO-ILk"/>
                     </connections>
@@ -159,6 +230,29 @@
             <point key="canvasLocation" x="1296" y="-833"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddCourseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddCourseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="inputCourseName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="inputCourseNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CoursesTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CoursesTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reloadCourses:"/>
+            </relationships>
+        </class>
+        <class className="ProjectsTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ProjectsTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="reloadProjects:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB94757E14EDA266002ACF12 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = EB94757D14EDA266002ACF12 /* Project.m */; };
+		EB94758E14EDA499002ACF12 /* ProjectsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB94758D14EDA499002ACF12 /* ProjectsTableViewController.m */; };
 		EBCFF10614E6FEED00389E38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF10514E6FEED00389E38 /* UIKit.framework */; };
 		EBCFF10814E6FEED00389E38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF10714E6FEED00389E38 /* Foundation.framework */; };
 		EBCFF10A14E6FEED00389E38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCFF10914E6FEED00389E38 /* CoreGraphics.framework */; };
@@ -65,6 +67,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB94757C14EDA266002ACF12 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		EB94757D14EDA266002ACF12 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		EB94757F14EDA2F5002ACF12 /* MyModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyModels.h; sourceTree = "<group>"; };
+		EB94758C14EDA498002ACF12 /* ProjectsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectsTableViewController.h; sourceTree = "<group>"; };
+		EB94758D14EDA499002ACF12 /* ProjectsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectsTableViewController.m; sourceTree = "<group>"; };
 		EBCFF10114E6FEED00389E38 /* iSchoolManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSchoolManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBCFF10514E6FEED00389E38 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EBCFF10714E6FEED00389E38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +165,9 @@
 				EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */,
 				EBCFF16714E73CF200389E38 /* AddCourseViewController.h */,
 				EBCFF16814E73CF200389E38 /* AddCourseViewController.m */,
+				EB94757F14EDA2F5002ACF12 /* MyModels.h */,
+				EB94758C14EDA498002ACF12 /* ProjectsTableViewController.h */,
+				EB94758D14EDA499002ACF12 /* ProjectsTableViewController.m */,
 			);
 			path = iSchoolManager;
 			sourceTree = "<group>";
@@ -178,6 +188,8 @@
 			children = (
 				EBCFF11D14E6FF3600389E38 /* Course.h */,
 				EBCFF11E14E6FF3600389E38 /* Course.m */,
+				EB94757C14EDA266002ACF12 /* Project.h */,
+				EB94757D14EDA266002ACF12 /* Project.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -299,6 +311,8 @@
 				EBCFF11F14E6FF3600389E38 /* Course.m in Sources */,
 				EBCFF16414E7032D00389E38 /* CoursesTableViewController.m in Sources */,
 				EBCFF16914E73CF300389E38 /* AddCourseViewController.m in Sources */,
+				EB94757E14EDA266002ACF12 /* Project.m in Sources */,
+				EB94758E14EDA499002ACF12 /* ProjectsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,8 @@
 #import <RestKit/RestKit.h>
 #import "AddCourseViewController.h"
 
+@class Course, Project;
+
 @interface CoursesTableViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKObjectLoaderDelegate> 
 
 - (IBAction)reloadCourses:(id)sender;
