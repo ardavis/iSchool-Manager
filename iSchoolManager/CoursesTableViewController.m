@@ -11,7 +11,6 @@
 #import "MyModels.h"
 #import <RestKit/RestKit.h>
 
-
 @interface CoursesTableViewController () <AddCourseViewControllerDelegate>
 - (void)loadCourses;
 - (void)reload;

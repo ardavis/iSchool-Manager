@@ -26,6 +26,7 @@
 		EBCFF16414E7032D00389E38 /* CoursesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF16314E7032D00389E38 /* CoursesTableViewController.m */; };
 		EBCFF16614E706EC00389E38 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */; };
 		EBCFF16914E73CF300389E38 /* AddCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCFF16814E73CF200389E38 /* AddCourseViewController.m */; };
+		EBE6613414F04FA700AADB6F /* AddProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE6613314F04FA600AADB6F /* AddProjectViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		EBCFF16514E706EC00389E38 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		EBCFF16714E73CF200389E38 /* AddCourseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCourseViewController.h; sourceTree = "<group>"; };
 		EBCFF16814E73CF200389E38 /* AddCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddCourseViewController.m; sourceTree = "<group>"; };
+		EBE6613214F04FA600AADB6F /* AddProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddProjectViewController.h; sourceTree = "<group>"; };
+		EBE6613314F04FA600AADB6F /* AddProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddProjectViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				EB94757F14EDA2F5002ACF12 /* MyModels.h */,
 				EB94758C14EDA498002ACF12 /* ProjectsTableViewController.h */,
 				EB94758D14EDA499002ACF12 /* ProjectsTableViewController.m */,
+				EBE6613214F04FA600AADB6F /* AddProjectViewController.h */,
+				EBE6613314F04FA600AADB6F /* AddProjectViewController.m */,
 			);
 			path = iSchoolManager;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				EBCFF16914E73CF300389E38 /* AddCourseViewController.m in Sources */,
 				EB94757E14EDA266002ACF12 /* Project.m in Sources */,
 				EB94758E14EDA499002ACF12 /* ProjectsTableViewController.m in Sources */,
+				EBE6613414F04FA700AADB6F /* AddProjectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

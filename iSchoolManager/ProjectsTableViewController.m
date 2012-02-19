@@ -7,10 +7,11 @@
 //
 
 #import "ProjectsTableViewController.h"
+#import "AddProjectViewController.h"
 #import <RestKit/RestKit.h>
 #import "MyModels.h"
 
-@interface ProjectsTableViewController ()
+@interface ProjectsTableViewController () <AddProjectViewControllerDelegate>
 - (void)loadProjects;
 - (void)reload;
 @end
@@ -18,6 +19,8 @@
 @implementation ProjectsTableViewController
 
 @synthesize projects = _projects, course = _course;
+@synthesize incompleteProjects = _incompleteProjects;
+@synthesize completeProjects = _completeProjects;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,12 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -96,12 +93,28 @@
 
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSMutableArray*)objects {
     self.projects = objects;
-    for (int i = 0; i < self.projects.count; i++) {
-        Project *myProject = [self.projects objectAtIndex:i];
-        NSLog(@"Project #%i Title - %@", i, myProject.title);
-        NSLog(@"Project #%i Description - %@", i, myProject.desc);
-        NSLog(@"Project #%i ID - %@", i, myProject.projectID);
+    self.incompleteProjects = [[NSMutableArray alloc] initWithCapacity:self.projects.count];
+    self.completeProjects = [[NSMutableArray alloc] initWithCapacity:self.projects.count];
+    for (Project* myProject in self.projects)
+    {
+        NSLog(@"All Projects: %@", self.projects);
+        if (myProject.completedAt == NULL)
+        {
+            // Incomplete
+            [self.incompleteProjects addObject:myProject];
+        }
+        else
+        {
+            // Complete
+            [self.completeProjects addObject:myProject];
+        }
+        
+        NSLog(@"Incomplete Projects %@", self.incompleteProjects);
+        NSLog(@"Complete Projects %@", self.completeProjects);
+        NSLog(@"Incomplete Count %i", self.incompleteProjects.count);
+        NSLog(@"Complete Count %i", self.completeProjects.count);
     }
+    
     [self.tableView reloadData];
     
 }
@@ -119,7 +132,6 @@
     objectManager.client.baseURL = @"http://school_manager.dev";
     
     // Setup the URL
-    NSLog(@"SELF.COURSE ID IS: %d", [[self.course courseID] intValue]);
     NSString *url = [NSString stringWithFormat:@"/users/1/courses/%d/projects", [[self.course courseID] intValue]];
     
     //    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self];
@@ -138,13 +150,33 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.projects.count;
+    if (section == 0)
+    {
+        return self.incompleteProjects.count;
+    }
+    else
+    {
+        return self.completeProjects.count;
+    }
+    return 0;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return @"Incomplete";
+    }
+    else if (section == 1)
+    {
+        return @"Complete";
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -157,7 +189,6 @@
     }
     
     // Configure the cell...
-    Project *project = (Project *)[self.projects objectAtIndex:indexPath.row];
     
     static NSDateFormatter *formatter = nil;
     
@@ -167,12 +198,47 @@
     }
     [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"];
     
-    NSDate *date = [formatter dateFromString:project.dueDate]; 
-    [formatter setDateFormat:@"E, MMM dd 'at' h:mm a"]; // Mon, Feb 20 at 3:35 PM
-    
-    
-    cell.textLabel.text = project.title;
-    cell.detailTextLabel.text = [formatter stringFromDate:date];
+    if (indexPath.section == 0)
+    {
+        // Incomplete
+        Project *project = (Project *)[self.incompleteProjects objectAtIndex:indexPath.row];
+
+        NSDate *date = [formatter dateFromString:project.dueDate]; 
+        [formatter setDateFormat:@"E, MMM dd 'at' h:mm a"]; // Mon, Feb 20 at 3:35 PM
+        
+        cell.textLabel.text = project.title;
+        
+        // Determine detailTextLabel
+        if (project.dueDate == NULL)
+        {
+            cell.detailTextLabel.text = @"TBD";
+        }
+        else 
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Due: %@", [formatter stringFromDate:date]];
+        }
+    }
+    else if (indexPath.section == 1)
+    {
+        // Complete
+        Project *project = (Project *)[self.completeProjects objectAtIndex:indexPath.row];
+        
+        NSDate *completedDate = [formatter dateFromString:project.completedAt];
+        [formatter setDateFormat:@"E, MMM dd 'at' h:mm a"]; // Mon, Feb 20 at 3:35 PM
+
+        cell.textLabel.text = project.title;
+        
+        // Determine detailTextLabel
+        if (project.completedAt == NULL)
+        {
+            // Don't set the detailTextLabel.
+            cell.detailTextLabel.text = @"";
+        }
+        else 
+        {
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"Completd on: %@", [formatter stringFromDate:completedDate]];
+        }
+    }
     
     return cell;
 }
@@ -227,6 +293,46 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
+}
+
+#pragma mark - AddCourse Delegates
+
+- (void)addProjectViewControllerDidCancel:(AddProjectViewController *)controller {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)addProjectViewControllerDidFinish:(AddProjectViewController *)controller project:(Project *)project
+{
+    if ([project.title length])
+    {
+        NSString *postURL = [NSString stringWithFormat:@"/users/1/courses/%d/projects", [project.courseID intValue]];
+        
+        // Add the new project
+        [[RKObjectManager sharedManager] postObject:project delegate:self block:^(RKObjectLoader* loader) { 
+            loader.resourcePath = postURL;
+            loader.objectMapping = [[RKObjectManager sharedManager].mappingProvider objectMappingForKeyPath:postURL]; 
+        }]; 
+        
+    }
+    
+    [self dismissModalViewControllerAnimated:YES];
+    
+    // Reload the Data
+    [self reload];
+}
+
+#pragma segue
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"ShowAddProjectView"])
+    {
+        // Get reference to the destination view controller
+        AddProjectViewController *vc = (AddProjectViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];        
+        
+        vc.delegate = self;
+        vc.course = self.course;
+    }
 }
 
 #pragma mark course

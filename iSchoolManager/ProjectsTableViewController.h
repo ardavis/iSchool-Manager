@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
+#import "AddProjectViewController.h"
 
 @class Course, Project;
 
@@ -15,7 +16,9 @@
 
 - (IBAction)reloadProjects:(id)sender;
 
-@property (nonatomic, strong) NSMutableArray* projects;
+@property (nonatomic, strong) NSMutableArray *projects;
+@property (nonatomic, strong) NSMutableArray *incompleteProjects;
+@property (nonatomic, strong) NSMutableArray *completeProjects;
 @property (nonatomic, strong) Course *course;
 
 @end

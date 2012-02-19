@@ -120,13 +120,100 @@
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="0s1-uh-EMx"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="UUW-dv-ObJ"/>
                         <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="fyV-Pq-Cmq"/>
-                        <barButtonItem title="New Project" id="pMH-ii-gmg"/>
+                        <barButtonItem title="New Project" id="pMH-ii-gmg">
+                            <connections>
+                                <segue destination="VR9-7J-HcB" kind="modal" identifier="ShowAddProjectView" modalTransitionStyle="crossDissolve" id="KSo-HB-DnU"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Course Number" id="yVo-j4-V3G"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
             </objects>
             <point key="canvasLocation" x="1296" y="-239"/>
+        </scene>
+        <scene sceneID="SSl-j9-5qj">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="poX-db-AwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="9cV-Tv-UMb" customClass="AddProjectViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lm5-r1-Avw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KOa-GY-dtI">
+                                <rect key="frame" x="20" y="119" width="280" height="198"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9cV-Tv-UMb" id="CtD-kD-ATw"/>
+                                </connections>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="ceR-oT-oBd">
+                                <rect key="frame" x="20" y="52" width="280" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9cV-Tv-UMb" id="aAp-Ko-yYd"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" minimumFontSize="10" id="yNs-Pc-znA">
+                                <rect key="frame" x="20" y="90" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" minimumFontSize="10" id="Nuz-gO-86x">
+                                <rect key="frame" x="20" y="23" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Due Date" lineBreakMode="tailTruncation" minimumFontSize="10" id="CGk-5f-gej">
+                                <rect key="frame" x="20" y="331" width="72" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="dlX-X7-Xbj">
+                                <rect key="frame" x="20" y="360" width="280" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Click to set the Due Date">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Project" id="UPx-6Q-csv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qvl-Eu-Bxf">
+                            <connections>
+                                <action selector="cancel:" destination="9cV-Tv-UMb" id="5GD-oB-Jik"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="us4-up-6J2">
+                            <connections>
+                                <action selector="done:" destination="9cV-Tv-UMb" id="HLU-11-rMj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="inputProjectDesc" destination="KOa-GY-dtI" id="WZV-Qy-Bux"/>
+                        <outlet property="inputProjectTitle" destination="ceR-oT-oBd" id="j7N-l5-lUK"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="2348" y="310"/>
         </scene>
         <scene sceneID="i4m-QI-BJZ">
             <objects>
@@ -229,6 +316,23 @@
             </objects>
             <point key="canvasLocation" x="1296" y="-833"/>
         </scene>
+        <scene sceneID="qdm-be-o6Q">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFn-em-pKQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="VR9-7J-HcB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="sce-dP-65f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9cV-Tv-UMb" kind="relationship" relationship="rootViewController" id="syI-zF-X62"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1822" y="310"/>
+        </scene>
     </scenes>
     <classes>
         <class className="AddCourseViewController" superclassName="UIViewController">
@@ -238,6 +342,15 @@
                 <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="inputCourseName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="inputCourseNumber" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddProjectViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddProjectViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="inputProjectDesc" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="inputProjectTitle" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="CoursesTableViewController" superclassName="UITableViewController">

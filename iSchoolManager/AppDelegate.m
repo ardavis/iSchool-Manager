@@ -63,6 +63,7 @@
     [projectMapping mapKeyPath:@"title" toAttribute:@"title"];
     [projectMapping mapKeyPath:@"description" toAttribute:@"desc"];
     [projectMapping mapKeyPath:@"due_date" toAttribute:@"dueDate"];
+    [projectMapping mapKeyPath:@"completed_at" toAttribute:@"completedAt"];
     
     [projectMapping mapRelationship:@"course" withMapping:courseMapping];
     
@@ -72,6 +73,7 @@
     [projectSerializationMapping mapKeyPath:@"title" toAttribute:@"title"];
     [projectSerializationMapping mapKeyPath:@"desc" toAttribute:@"description"];
     [projectSerializationMapping mapKeyPath:@"dueDate" toAttribute:@"due_date"];
+    [projectSerializationMapping mapKeyPath:@"completedAt" toAttribute:@"completed_at"];
     
     // Register our mappings with the provider
     [objectManager.mappingProvider setMapping:projectMapping forKeyPath:@"/projects"];

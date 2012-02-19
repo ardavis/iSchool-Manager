@@ -14,6 +14,7 @@
     NSString* title;
     NSString* desc;
     NSString* dueDate;
+    NSString* completedAt;
 }
 
 @property (nonatomic, retain) NSString *projectID;
@@ -21,5 +22,6 @@
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSString *desc;
 @property (nonatomic, retain) NSString *dueDate;
+@property (nonatomic, retain) NSString *completedAt;
 
 @end

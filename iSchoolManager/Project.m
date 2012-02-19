@@ -10,6 +10,6 @@
 
 @implementation Project
 
-@synthesize projectID, courseID, title, desc, dueDate;
+@synthesize projectID, courseID, title, desc, dueDate, completedAt;
 
 @end

@@ -8,7 +8,7 @@
 
 #import "AddCourseViewController.h"
 #import "CoursesTableViewController.h"
-#import "Course.h"
+#import "MyModels.h"
 
 @implementation AddCourseViewController
 
