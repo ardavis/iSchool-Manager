@@ -60,6 +60,7 @@
     self.course = [[Course alloc] init];
     self.course.name = self.inputCourseName.text;
     self.course.number = self.inputCourseNumber.text;
+    self.course.userID = @"1";
     
     NSLog(@"New Course Name: %@", self.course.name);
     NSLog(@"New Course Number: %@", self.course.number); 

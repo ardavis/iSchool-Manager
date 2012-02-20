@@ -19,7 +19,7 @@
 {
     RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
     // Initialize RestKit
-    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:@"http://school_manager.dev"];
+    RKObjectManager* objectManager = [RKObjectManager objectManagerWithBaseURL:HOST];
     objectManager.acceptMIMEType = RKMIMETypeJSON;
     objectManager.serializationMIMEType = RKMIMETypeJSON; 
     
@@ -40,11 +40,13 @@
     [courseMapping mapKeyPath:@"id" toAttribute:@"courseID"];
     [courseMapping mapKeyPath:@"name" toAttribute:@"name"];
     [courseMapping mapKeyPath:@"number" toAttribute:@"number"];
+    [courseMapping mapKeyPath:@"user_id" toAttribute:@"userID"];
     
     // Setup our outgoing object mapping
     [courseSerializationMapping mapKeyPath:@"courseID" toAttribute:@"id"]; 
     [courseSerializationMapping mapKeyPath:@"name" toAttribute:@"name"]; 
     [courseSerializationMapping mapKeyPath:@"number" toAttribute:@"number"]; 
+    [courseSerializationMapping mapKeyPath:@"userID" toAttribute:@"user_id"];
     
     // Register our mappings with the provider
     [objectManager.mappingProvider setMapping:courseMapping forKeyPath:@""];
@@ -82,6 +84,7 @@
     // Routing
     [objectManager.router routeClass:[Project class] toResourcePath:@"/projects" forMethod:RKRequestMethodGET];
     [objectManager.router routeClass:[Project class] toResourcePath:@"/projects" forMethod:RKRequestMethodPOST];
+    [objectManager.router routeClass:[Project class] toResourcePath:@"/projects/:projectID" forMethod:RKRequestMethodPUT];
     [objectManager.router routeClass:[Project class] toResourcePath:@"/projects/:projectID" forMethod:RKRequestMethodDELETE];
     
     return YES;

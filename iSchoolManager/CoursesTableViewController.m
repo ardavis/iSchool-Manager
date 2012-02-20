@@ -109,9 +109,8 @@
 
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    objectManager.client.baseURL = @"http://school_manager.dev";
+    objectManager.client.baseURL = HOST;
 
-//    [objectManager loadObjectsAtResourcePath:@"/courses" delegate:self];
     [objectManager loadObjectsAtResourcePath:@"/users/1/courses" delegate:self block:^(RKObjectLoader* loader) {
         // School Manager returns courses as a naked array in JSON, so we instruct the loader
         // to user the appropriate object mapping

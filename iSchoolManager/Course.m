@@ -10,6 +10,6 @@
 
 @implementation Course
 
-@synthesize courseID, name, number;
+@synthesize courseID, name, number, userID;
 
 @end

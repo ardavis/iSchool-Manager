@@ -7,6 +7,7 @@
 //
 
 #import "ProjectsTableViewController.h"
+#import "ProjectDetailViewController.h"
 #import "AddProjectViewController.h"
 #import <RestKit/RestKit.h>
 #import "MyModels.h"
@@ -97,7 +98,6 @@
     self.completeProjects = [[NSMutableArray alloc] initWithCapacity:self.projects.count];
     for (Project* myProject in self.projects)
     {
-        NSLog(@"All Projects: %@", self.projects);
         if (myProject.completedAt == NULL)
         {
             // Incomplete
@@ -108,11 +108,6 @@
             // Complete
             [self.completeProjects addObject:myProject];
         }
-        
-        NSLog(@"Incomplete Projects %@", self.incompleteProjects);
-        NSLog(@"Complete Projects %@", self.completeProjects);
-        NSLog(@"Incomplete Count %i", self.incompleteProjects.count);
-        NSLog(@"Complete Count %i", self.completeProjects.count);
     }
     
     [self.tableView reloadData];
@@ -129,8 +124,8 @@
     
     // Load the object model via RestKit
     RKObjectManager* objectManager = [RKObjectManager sharedManager];
-    objectManager.client.baseURL = @"http://school_manager.dev";
-    
+    objectManager.client.baseURL = HOST;
+
     // Setup the URL
     NSString *url = [NSString stringWithFormat:@"/users/1/courses/%d/projects", [[self.course courseID] intValue]];
     
@@ -252,19 +247,31 @@
 }
 */
 
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        // Delete the course from the data source
+        NSLog(@"Swiped Row: %i", indexPath.row);
+        
+        Project *delProject;
+        if (indexPath.section == 0)
+        {
+            delProject = [self.incompleteProjects objectAtIndex:indexPath.row];
+        }
+        else if (indexPath.section == 1)
+        {
+            delProject = [self.completeProjects objectAtIndex:indexPath.row];
+        }
+        
+        RKObjectManager* objectManager = [RKObjectManager sharedManager];
+        [[RKObjectManager sharedManager] deleteObject:delProject delegate:self block:^(RKObjectLoader *loader) {
+            loader.objectMapping = [objectManager.mappingProvider objectMappingForClass:[Project class]];
+        }];
+        
+        [self reload];
+        
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -325,7 +332,30 @@
 
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"ShowAddProjectView"])
+    if ([[segue identifier] isEqualToString:@"ShowProjectDetailView"])
+    {
+        ProjectDetailViewController *detailViewController = [segue destinationViewController];
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSInteger section = indexPath.section;
+        NSInteger row = indexPath.row;
+        Project *myProject;
+        
+        if (section == 0)
+        {
+            // Incomplete
+            myProject = (Project *)[self.incompleteProjects objectAtIndex:row];        
+        }
+        else if (section == 1)
+        {
+            // Complete
+            myProject = (Project *)[self.completeProjects objectAtIndex:row];
+        }
+        
+        detailViewController.project = myProject;
+        detailViewController.course = self.course;
+    }
+    else if ([[segue identifier] isEqualToString:@"ShowAddProjectView"])
     {
         // Get reference to the destination view controller
         AddProjectViewController *vc = (AddProjectViewController *)[[[segue destinationViewController] viewControllers] objectAtIndex:0];        

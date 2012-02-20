@@ -17,6 +17,7 @@
 @synthesize delegate = _delegate;
 @synthesize inputProjectTitle = _inputProjectTitle;
 @synthesize inputProjectDesc = _inputProjectDesc;
+@synthesize inputProjectDueDate = _inputProjectDueDate;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.inputProjectTitle) {
@@ -86,6 +87,7 @@
 {
     [self setInputProjectTitle:nil];
     [self setInputProjectDesc:nil];
+    [self setInputProjectDueDate:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -105,6 +107,7 @@
     self.project = [[Project alloc] init];
     self.project.title = self.inputProjectTitle.text;
     self.project.desc = self.inputProjectDesc.text;
+    self.project.dueDate = [NSString stringWithFormat:@"%@", self.inputProjectDueDate.date];
     self.project.courseID = self.course.courseID;
     
     [[self delegate] addProjectViewControllerDidFinish:self project:self.project];

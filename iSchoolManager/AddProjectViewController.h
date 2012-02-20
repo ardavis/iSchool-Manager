@@ -17,6 +17,7 @@
 @property (weak, nonatomic) id <AddProjectViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UITextField *inputProjectTitle;
 @property (weak, nonatomic) IBOutlet UITextView *inputProjectDesc;
+@property (weak, nonatomic) IBOutlet UIDatePicker *inputProjectDueDate;
 @property (strong, nonatomic) Course *course;
 @property (strong, nonatomic) Project *project;
 

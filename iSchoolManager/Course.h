@@ -12,10 +12,12 @@
     NSString* courseID;
     NSString* name;
     NSString* number;
+    NSString* userID;
 }
 
 @property (nonatomic, retain) NSString *courseID;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *number;
+@property (nonatomic, retain) NSString *userID;
 
 @end
